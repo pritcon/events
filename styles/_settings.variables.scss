@@ -1,0 +1,202 @@
+/* ------------------------------------ *\
+    $VARIABLES
+\* ------------------------------------ */
+
+/**
+ * Grid & Baseline Setup
+ */
+// Global
+$max-width: 1440px;
+$max-width-xl: 1600px;
+$max-width-s: 800px;
+
+// Grid
+$grid-columns: 12;
+$col-width: 65;
+$gutter: 40px;
+
+/**
+ * Theme Colors
+ */
+
+// Neutrals
+$c-white: #fff;
+$c-gray--light: #f0f0f0;
+$c-gray: #b3b3b3;
+$c-gray--dark: #c0c1c5;
+$c-black: #000;
+
+$c-primary: $c-black;
+$c-secondary: $c-gray;
+$c-tertiary: $c-white;
+
+/**
+ * Default Colors
+ */
+$c-error: #f00;
+$c-valid: #089e00;
+$c-warning: #fff664;
+$c-information: #000db5;
+$c-overlay: rgba($c-black, 0.8);
+
+/**
+ * Style Colors
+ */
+$c-body-color: $c-black;
+$c-link-color: $c-primary;
+$c-link-hover-color: darker($c-primary, 10%);
+$c-button-primary: $c-primary;
+$c-button-primary-hover: darker($c-primary, 10%);
+$c-button-secondary: $c-secondary;
+$c-button-secondary-hover: darker($c-secondary, 10%);
+$c-border: $c-gray;
+
+/**
+ * Typography
+ */
+$ff-font: 'Gotham', sans-serif;
+$ff-font--sans: $ff-font;
+$ff-font--serif: 'Miller Display', serif;
+$ff-font--monospace: Menlo, Monaco, "Courier New", "Courier", monospace;
+
+// Theme typefaces
+$ff-font--primary: $ff-font;
+$ff-font--secondary: $ff-font--serif;
+
+/**
+ * Icons
+ */
+$icon-xsmall: 15px;
+$icon-small: 20px;
+$icon-medium: 30px;
+$icon-large: 40px;
+$icon-xlarge: 70px;
+
+/**
+ * Common Breakpoints
+ */
+$xsmall: 400px;
+$small: 550px;
+$medium: 700px;
+$large: 850px;
+$xlarge: 1000px;
+$xxlarge: 1200px;
+$xxxlarge: 1400px;
+
+$breakpoints: ("xsmall": $xsmall, "small": $small, "medium": $medium, "large": $large, "xlarge": $xlarge, "xxlarge": $xxlarge, "xxxlarge": $xxxlarge);
+
+/**
+ * Animation
+ */
+$hard-ease-in: cubic-bezier(0.86, 0, 0.07, 1);
+$transition-all: all 0.23s $hard-ease-in;
+
+/**
+ * Border Styles
+ */
+$border-radius-curve: 2px;
+$border-radius-curve--hard: 4px;
+$border--standard: 1px solid $c-border;
+$border--standard-light: 2px solid $c-gray--light;
+$border--standard-dark: 1px solid $c-black;
+$box-shadow--standard: 0px 4px 12px rgba($c-black, 0.05);
+$box-shadow--thick: 0px 8px 24px rgba($c-black, 0.2);
+
+/**
+ * Default Spacing/Padding
+ * Maintain a spacing system divisible by 10
+ */
+$space: 20px;
+$space-one-fourth: $space / 4;
+$space-half: $space / 2;
+$space-and-half: $space * 1.5;
+$space-double: $space * 2;
+$space-double-half: $space * 2.5;
+$space-triple: $space * 3;
+$space-quad: $space * 4;
+$space-quint: $space * 5;
+
+/**
+ * Font Sizes
+ */
+
+/**
+ * Native Custom Properties
+ */
+:root {
+  --body-font-size: 16px;
+  --font-size-xs: 12px;
+  --font-size-s: 14px;
+  --font-size-s-m: 16px;
+  --font-size-m: 16px;
+  --font-size-l: 18px;
+  --font-size-l-xl: 24px;
+  --font-size-xl: 24px;
+  --font-size-xxl: 32px;
+  --font-size-xxxl: 80px;
+}
+
+// Medium Breakpoint
+@media screen and (min-width: 700px) {
+  :root {
+    --body-font-size: 24px;
+    --font-size-xs: 14px;
+    --font-size-s: 16px;
+    --font-size-s-m: 18px;
+    --font-size-m: 24px;
+    --font-size-l: 32px;
+    --font-size-l-xl: 36px;
+    --font-size-xl: 48px;
+    --font-size-xxl: 96px;
+    --font-size-xxxl: 94px;
+  }
+}
+
+// Large Breakpoint
+@media screen and (min-width: 1000px) {
+  :root {
+    --font-size-xl: 64px;
+    --font-size-xxxl: 140px;
+  }
+}
+
+$body-font-size: var(--body-font-size, 24px);
+$font-size-xs: var(--font-size-xs, 14px);
+$font-size-s: var(--font-size-s, 16px);
+$font-size-s-m: var(--font-size-s-m, 16px);
+$font-size-m: var(--font-size-m, 24px);
+$font-size-l: var(--font-size-l, 32px);
+$font-size-l-xl: var(--font-size-l-xl, 36px);
+$font-size-xl: var(--font-size-xl, 64px);
+$font-size-xxl: var(--font-size-xxl, 96px);
+$font-size-xxxl: var(--font-size-xxxl, 140px);
+
+$letter-spacing-primary: 0.02em;
+$letter-spacing-secondary: 0.15em;
+$letter-spacing-tertiary: 0.1em;
+$letter-spacing-quaternary: 0.05em;
+
+//Responsive fonts
+$min_width: 320px;
+$max_width: 1600px;
+$min_font: 32px;
+$max_font: 160px;
+
+$min_width-xl: 320px;
+$max_width-xl: 1600px;
+$min_font-xl: 32px;
+$max_font-xl: 72px;
+
+$min_font-xl-alt: 32px;
+$max_font-xl-alt: 64px;
+
+$min_width-xxl: 320px;
+$max_width-xxl: 1600px;
+$min_font-xxl: 32px;
+$max_font-xxl: 100px;
+
+$min_font-xxl-alt: 32px;
+$max_font-xxl-alt: 64px;
+
+
+

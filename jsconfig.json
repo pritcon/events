@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@lib/*": ["lib/*"],
+      "@atoms/*": ["components/01-atoms/*"],
+      "@molecules/*": ["components/02-molecules/*"],
+      "@organisms/*": ["components/03-organisms/*"],
+      "@templates/*": ["components/04-templates/*"]
+    }
+  }
+}

@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: strapi-prod-deployment
+  namespace: strapi-prod
+  labels:
+    app: {{ .Values.labels.app }}
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: {{ .Values.labels.app }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.labels.app }}
+    spec:
+      containers:
+      - name: strapi-prod
+        image: "{{ .Values.image.repository }}:{{ .Values.image.image_tag }}"
+        ports:
+        - containerPort: 1337

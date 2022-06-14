@@ -1,0 +1,289 @@
+/* ------------------------------------ *\
+    $GALLERY
+\* ------------------------------------ */
+
+.c-filter {
+    @include media(">large") {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    &__wrapper {
+        @include media(">xxlarge") {
+            display: flex;
+            align-items: baseline;
+        }
+        .c-link-blocks {
+            position: relative;
+        }
+    }
+
+    &__heading {
+        margin: $space-quint auto $space-double auto;
+        
+        @include media(">large") {
+            margin: 140px auto $space-double auto;
+        }
+    }
+
+    &__label {
+        font-size: $font-size-xs;
+        letter-spacing: 0.15em;
+        line-height: 1.16;
+        display: block;
+        text-transform: uppercase;
+        font-weight: bold;
+        margin-bottom: $space-half;
+        @include media(">large") {
+            font-size: $font-size-m;
+        }
+    }
+}
+
+
+.c-filter-block {
+    cursor: pointer;
+    display: block;
+
+    @include media(">large") {
+        flex: 1 0 0;
+    }
+
+    &:first-of-type {
+        .c-filter-block__title {
+            border-top: $border--standard-dark;
+            @include media(">large") {
+                border-top: 0;
+            }
+        }
+    }
+
+    &__mobile-heading {
+        background: $c-black;
+        padding-top: $space-and-half;
+        text-align: center;
+        color: $c-white;
+        margin-bottom: $space;
+        position: relative;
+        @include media(">large") {
+            display: none;
+        }
+    }
+
+    &__mobile-title {
+        display: block;
+        font-family: $ff-font--secondary;
+        font-size: $font-size-xl;
+        font-weight: 600;
+    }
+
+    &__mobile-close {
+        width: 16px;
+        height: 16px;
+        position: absolute;
+        left: $space-half;
+        bottom: $space-half;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-image: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L11 11M11 1L1 11' stroke='white'/%3E%3C/svg%3E%0A");
+        
+    }
+
+    &.open {
+        .c-filter-block__options {
+            transform: translateX(0) !important;
+            opacity: 1 !important;
+            display: block !important;
+            pointer-events: auto !important;
+            display: block !important;
+
+            @include media(">large") {
+                display: flex;
+            }
+        }
+    }
+
+    &__title {
+        font-family: $ff-font--secondary;
+        font-size: $font-size-s;
+        line-height: 1.18;
+        letter-spacing: 0.02em;
+        text-transform: capitalize;
+        font-weight: 600;
+        display: block;
+        padding-top: $space;
+        padding-bottom: $space;
+        border-bottom: $border--standard-dark;
+        background-image: url("data:image/svg+xml,%3Csvg width='20' height='10' viewBox='0 0 20 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M19 1L9.96116 8.3431L1 0.999999' stroke='black' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E%0A");
+        background-repeat: no-repeat;
+        background-position: center right;
+        @include media(">large") {
+            display: inline-block;
+            padding: $space-half $space-double $space-half $space;
+            border: 0;
+            background-position: 95% center;
+            font-size: $font-size-m;
+            pointer-events: none;
+        }
+        
+        @include media(">xlarge") {
+            font-size: $font-size-l;
+        }
+
+        @include media(">xxlarge") {
+            padding: $space-half $space-double + 10 $space-half $space + 10;
+            background-position: 90% center;
+            font-size: $font-size-l;
+        }
+    }
+
+    &__options {
+        position: fixed;
+        opacity: 0;
+        display: none;
+        pointer-events: none;
+        background: $c-white;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100vw;
+        z-index: 999;
+        transform: translateX(-100%);
+        transition: all 0.3s ease;
+        @include media(">large") {
+            top: auto;
+            position: absolute;
+            height: auto;
+            width: 100%;
+            flex-wrap: wrap;
+            padding: $space;
+            transform: translateX(0%);
+            box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.25);
+        }
+
+    }
+    &__item {
+        font-size: $font-size-s;
+        text-transform: uppercase;
+        display: block;
+        padding: $space-half $space;
+        position: relative;
+        @include media(">large") {
+            padding: 5px 0;
+            flex-basis: 25%;
+            white-space: nowrap;
+        }
+
+        input[type=checkbox] {
+            @include media("<large") {
+                position: absolute;
+                right: $space;
+                top: 50%;
+                font-weight: 600;
+                transform: translateY(-50%);
+                border: none;
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-position: 90% center;
+                background-image: url("data:image/svg+xml,%3Csvg width='17' height='12' viewBox='0 0 17 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 4.40909L5.77273 9.86364L16 1' stroke='black' stroke-opacity='0.3' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E ");
+            }
+            @include media(">large") {
+                margin-bottom: $space-half;
+                position: static;
+                top: auto;
+                left: auto;
+                border: $border--standard;
+            }
+            & + label {
+                display: block;
+                white-space: normal;
+                @include media("<large") {
+                    color: $c-gray;
+                }
+            }
+
+            &:checked {
+                @include media("<large") {
+                    background-image: url("data:image/svg+xml,%3Csvg width='17' height='12' viewBox='0 0 17 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 4.40909L5.77273 9.86364L16 1' stroke='black' stroke-opacity='1' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E ");
+                    & + label {
+                        color: $c-black;
+                    }
+                }
+            }
+        }
+    }
+
+    &:hover {
+        @include media(">large") {
+            .c-filter-block__title {
+                background: $c-black;
+                color: $c-white;
+                background-image: url("data:image/svg+xml,%3Csvg width='20' height='10' viewBox='0 0 20 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M19 1L9.96116 8.3431L1 0.999999' stroke='white' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E%0A");
+                background-position: 95% center;
+                background-repeat: no-repeat;
+            }
+        
+            .c-filter-block__options {
+                opacity: 1;
+                display: flex;
+                pointer-events: auto;
+            }
+        }
+        @include media(">xxlarge") {
+            .c-filter-block__title {
+                background-position: 90% center;
+            }
+        }
+    }
+
+    &__date-picker {
+        display: flex;
+        align-items: baseline;
+        margin-bottom: $space;
+        @include media(">large") {
+            margin-bottom: 0;
+        }
+
+        &__wrapper {
+            display: flex;
+            justify-content: space-between;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            @include media(">large") {
+                flex-direction: row;
+            }
+        }
+
+        .c-filter__date-label {
+            text-transform: uppercase;
+            font-size: $font-size-s;
+            line-height: 3;
+            letter-spacing: 0.2em;
+            font-weight: normal;
+        }
+
+        select {
+            margin-left: $space-half;
+            padding: $space-half;
+            width: 120px;
+            background-repeat: no-repeat;
+            background-position: 90% center;
+            background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6.60714 10.375H4.82143C4.52679 10.375 4.28571 10.143 4.28571 9.85938V8.14062C4.28571 7.85703 4.52679 7.625 4.82143 7.625H6.60714C6.90179 7.625 7.14286 7.85703 7.14286 8.14062V9.85938C7.14286 10.143 6.90179 10.375 6.60714 10.375ZM11.4286 9.85938V8.14062C11.4286 7.85703 11.1875 7.625 10.8929 7.625H9.10714C8.8125 7.625 8.57143 7.85703 8.57143 8.14062V9.85938C8.57143 10.143 8.8125 10.375 9.10714 10.375H10.8929C11.1875 10.375 11.4286 10.143 11.4286 9.85938ZM15.7143 9.85938V8.14062C15.7143 7.85703 15.4732 7.625 15.1786 7.625H13.3929C13.0982 7.625 12.8571 7.85703 12.8571 8.14062V9.85938C12.8571 10.143 13.0982 10.375 13.3929 10.375H15.1786C15.4732 10.375 15.7143 10.143 15.7143 9.85938ZM11.4286 13.9844V12.2656C11.4286 11.982 11.1875 11.75 10.8929 11.75H9.10714C8.8125 11.75 8.57143 11.982 8.57143 12.2656V13.9844C8.57143 14.268 8.8125 14.5 9.10714 14.5H10.8929C11.1875 14.5 11.4286 14.268 11.4286 13.9844ZM7.14286 13.9844V12.2656C7.14286 11.982 6.90179 11.75 6.60714 11.75H4.82143C4.52679 11.75 4.28571 11.982 4.28571 12.2656V13.9844C4.28571 14.268 4.52679 14.5 4.82143 14.5H6.60714C6.90179 14.5 7.14286 14.268 7.14286 13.9844ZM15.7143 13.9844V12.2656C15.7143 11.982 15.4732 11.75 15.1786 11.75H13.3929C13.0982 11.75 12.8571 11.982 12.8571 12.2656V13.9844C12.8571 14.268 13.0982 14.5 13.3929 14.5H15.1786C15.4732 14.5 15.7143 14.268 15.7143 13.9844ZM20 2.8125V17.9375C20 19.0762 19.0402 20 17.8571 20H2.14286C0.959821 20 0 19.0762 0 17.9375V2.8125C0 1.67383 0.959821 0.75 2.14286 0.75C9.24075 0.75 12.6045 0.75 17.8571 0.75C19.0402 0.75 20 1.67383 20 2.8125ZM17.8571 17.6797V4.875H2.14286V17.6797C2.14286 17.8215 2.26339 17.9375 2.41071 17.9375H17.5893C17.7366 17.9375 17.8571 17.8215 17.8571 17.6797Z' fill='%23666666'/%3E%3C/svg%3E%0A");
+            @include media(">large") {
+                width: 140px;
+            }
+
+        }
+    }
+}
+
+.c-filter-block__button.open .c-filter-block__options {
+    transform: translateX(0) !important;
+            opacity: 1 !important;
+            display: block !important;
+            pointer-events: auto !important;
+            display: block !important;
+        }

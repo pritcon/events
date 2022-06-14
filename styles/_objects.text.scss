@@ -1,0 +1,422 @@
+/* ------------------------------------ *\
+    $TEXT TYPES
+\* ------------------------------------ */
+
+/**
+ * Font Families
+ */
+.u-font {
+  font-family: $ff-font;
+}
+
+.u-font--primary,
+.u-font--primary p {
+  font-family: $ff-font--primary;
+}
+
+.u-font--secondary,
+.u-font--secondary p {
+  font-family: $ff-font--secondary;
+}
+
+/**
+ * Text Sizes
+ */
+
+.u-font--xs {
+  font-size: $font-size-xs;
+}
+
+.u-font--s {
+  font-size: $font-size-s;
+}
+
+.u-font--s-m {
+  font-size: $font-size-s-m;
+}
+
+.u-font--m {
+  font-size: $font-size-m;
+}
+
+.u-font--l {
+  font-size: $font-size-l;
+}
+
+.u-font--xl {
+  font-size: $font-size-xl;
+}
+
+.u-font--xxl {
+  font-size: $font-size-xxl;
+}
+
+/**
+ * Text Transforms
+ */
+.u-text-transform--upper {
+  text-transform: uppercase;
+}
+
+.u-text-transform--lower {
+  text-transform: lowercase;
+}
+
+.u-text-transform--none {
+  text-transform: none;
+}
+
+/**
+ * Text Styles
+ */
+.u-text-style--italic {
+  font-style: italic;
+}
+
+.u-font-weight--normal {
+  font-weight: normal;
+}
+
+/**
+ * Text Positioning
+ */
+.u-align--center {
+  text-align: center;
+}
+
+.u-align--right {
+  text-align: right;
+}
+
+/**
+ * Text Decorations
+ */
+.u-text-decoration--underline {
+  text-decoration: underline;
+}
+
+/**
+ * Rich text editor text
+ */
+.o-rte-text {
+  width: 100%;
+  margin: 0 auto;
+
+  & > * + * {
+    margin-top: $space;
+  }
+
+  > dl dd,
+  > dl dt,
+  > ol li,
+  > ul li,
+  > p {
+    @include p;
+  }
+
+  > h1,
+  > h2,
+  > h3,
+  > h4,
+  > h5,
+  > h6 {
+    padding-top: $space;
+    margin-bottom: -$space-half;
+  }
+
+  h2:empty,
+  h3:empty,
+  p:empty {
+    display: none;
+  }
+
+  // Heading + subheading lockup
+  > h2 + h3 {
+    margin-top: 0;
+    padding-top: $space-half;
+  }
+
+  a {
+    text-decoration: underline;
+  }
+
+  hr {
+    margin-top: $space-double;
+    margin-bottom: $space-double;
+  }
+
+  code,
+  pre {
+    font-size: 125%;
+  }
+
+  ol,
+  ul {
+    padding-left: 0;
+    margin-left: 0;
+
+    li {
+      list-style: none;
+      padding-left: 34px;
+      margin-left: 0;
+      position: relative;
+      line-height: 2.1em;
+
+      &::before {
+        color: $c-secondary;
+        width: 10px;
+        display: inline-block;
+        position: absolute;
+        left: 0;
+        font-size: 24px;
+        line-height: 1;
+        top: 4px;
+      }
+
+      li {
+        list-style: none;
+      }
+    }
+  }
+
+  ol {
+    counter-reset: item;
+
+    li {
+      &::before {
+        content: counter(item) ". ";
+        counter-increment: item;
+      }
+
+      li {
+        counter-reset: item;
+
+        &::before {
+          content: '\002010';
+        }
+      }
+    }
+  }
+
+  ul {
+    li {
+      &::before {
+        content: '\002022';
+      }
+
+      li {
+        &::before {
+          content: '\0025E6';
+        }
+      }
+    }
+  }
+}
+
+.o-eyebrow {
+  @include o-heading--m;
+  font-size: $font-size-l;
+}
+
+.o-stat {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: $space-double;
+  font-family: $ff-font--secondary;
+
+  @include media('>medium') {
+    margin: 0 $space;
+  }
+
+  &__value {
+    @include fluid-type($min_width-xl, $max_width-xl, $min_font-xl, $max_font-xl);
+    font-weight: 700;
+  }
+}
+
+.o-section-heading {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+
+  @include media('>medium') {
+    align-items: center;
+  }
+
+  &--l {
+    text-transform: uppercase;
+    font-size: $font-size-l;
+    font-weight: bold;
+    letter-spacing: $letter-spacing-secondary;
+
+    & + section {
+      margin-top: 0;
+    }
+  }
+
+  &__text {
+    position: relative;
+
+    span {
+      background-color: $c-tertiary;
+      padding-right: $space;
+      position: relative;
+      z-index: 1;
+      line-height: 1;
+      font-weight: 500;
+    }
+  }
+
+  &__line {
+    flex: 1;
+    width: 100%;
+    height: 1px;
+    background-color: $c-primary;
+    margin-top: 6px;
+
+    @include media('>medium') {
+      margin-top: 0;
+    }
+  }
+
+  &--alt {
+    border-top: 1px solid $c-primary;
+    padding-top: $space;
+
+    .o-section-heading__line {
+      background-color: $c-white;
+    }
+  }
+
+  &__button {
+    background-color: $c-white;
+    position: absolute;
+    bottom: 0;
+    z-index: 1;
+    margin-top: $space;
+
+    @include media('>medium') {
+      position: relative;
+      margin-left: $space;
+      margin-top: 0;
+    }
+  }
+}
+
+.o-pipe {
+  display: none;
+
+  @include media(">medium") {
+    display: inline-block;
+    border-right: 1px solid $c-primary;
+    height: $space;
+    margin: 0 $space-double;
+  }
+
+  &:last-of-type {
+    display: none;
+  }
+}
+
+.c-rotating-text {
+  font-family: $ff-font--primary;
+  font-size: 40px;
+  color: $c-white;
+  position: relative;
+  height: 100vh;
+
+  @include media('>medium') {
+    font-size: 140px;
+  }
+
+  &__item {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    opacity: 0;
+    text-transform: uppercase;
+    text-align: center;
+    opacity: 0;
+
+    // &:nth-child(1),
+    // &:nth-of-type(2),
+    // &:nth-of-type(3),
+    // &:nth-of-type(4),
+    // &:nth-of-type(5) {
+    //   animation-name: rotate;
+    //   animation-duration: 1s;
+    // }
+    
+    &:nth-child(1) {
+      width: 100%;
+      padding-left: $space-double;
+      padding-right: $space-double;
+
+      @include media('>medium') {
+        padding-left: $space-triple + $space-triple;
+        padding-right: $space-triple + $space-triple;
+      }
+    }
+
+    &.animation {
+      animation-name: rotate;
+      animation-duration: 1s;
+      animation-fill-mode: forwards;
+    }
+  }
+}
+
+@keyframes rotate {
+  0% {
+    opacity: 0;
+  }
+  
+  20%, 80% {
+    opacity: 1;
+  }
+  
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes rotate-last {
+  0% {
+    opacity: 0;
+  }
+  
+  50%, 100% {
+    opacity: 1;
+  }
+}
+
+// @for $i from 1 through 100 {
+//   .c-rotating-text__item {
+    
+//     &:nth-of-type(#{$i}) {
+//       // Delay the animation. Delay increases as items loop.
+//       animation-delay: $i * (1s);
+//     }
+//   }
+// }
+
+.c-section-sponsorship-content__heading h1 {
+  font-size: $font-size-xxxl;
+}
+
+.c-section-sponsorship-content__heading h2 {
+  @include fluid-type($min_width, $max_width, $min_font-xl-alt, $max_font-xl-alt);
+  font-weight: bold;
+}
+
+
+//home hero rotating text responsive font
+.c-rotating-text {
+  @include fluid-type($min_width, $max_width, $min_font, $max_font);
+}
+
+.o-date {
+  margin-bottom: $space-half;
+}

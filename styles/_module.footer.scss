@@ -1,0 +1,41 @@
+/* ------------------------------------ *\
+    $FOOTER
+\* ------------------------------------ */
+
+.c-footer {
+  display: block;
+  background: $c-primary;
+  padding-bottom: 24px;
+
+  &__image {
+    margin: auto;
+    padding-top: 32px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #383838;
+    text-align: center;
+
+    svg {
+      width: 220px;
+      margin: auto;
+    }
+  }
+
+  &__legal {
+    display: flex;
+    padding-top: $space-double;
+
+    a {
+      text-transform: uppercase;
+      color: #9c9ea0;
+      font-size: 12px;
+      display: block;
+      padding-right: 24px;
+    }
+  }
+
+  &__copyright {
+    color: #9c9ea0;
+    font-size: 12px;
+    padding-top: $space-double;
+  }
+}

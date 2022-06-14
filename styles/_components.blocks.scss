@@ -1,0 +1,37 @@
+/* ------------------------------------ *\
+    $BLOCKS
+\* ------------------------------------ */
+
+.c-media-block {
+    cursor: pointer;
+    .o-image-link {
+        position: relative;
+        margin-bottom: $space-half;
+    }
+
+    &__title {
+        color: $c-black;
+        transition: $transition-all;
+    }
+    &:hover {
+
+        .c-media-block__title {
+            color: $c-overlay;
+        }
+
+        .o-image-link {
+            &::before {
+                content: '';
+                display: block;
+                z-index: 2;
+                position: absolute;
+                top: 0;
+                left: 0;
+                background-color: $c-primary;
+                opacity: 0.2;
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+}

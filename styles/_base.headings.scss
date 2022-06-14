@@ -1,0 +1,100 @@
+/* ------------------------------------ *\
+    $HEADINGS
+\* ------------------------------------ */
+
+@mixin o-heading--xxxl {
+  font-family: $ff-font--secondary;
+  font-size: $font-size-xxxl;
+  font-weight: normal;
+  line-height: 0.9;
+  letter-spacing: $letter-spacing-primary;
+}
+
+.o-heading--xxxl {
+  @include o-heading--xxxl;
+}
+
+@mixin o-heading--xxl {
+  font-family: $ff-font--secondary;
+  font-size: $font-size-xxl;
+  font-weight: normal;
+  line-height: 0.9;
+  letter-spacing: $letter-spacing-primary;
+}
+
+h1,
+.o-heading--xxl {
+  @include o-heading--xxl;
+  @include fluid-type($min_width-xxl, $max_width-xxl, $min_font-xxl, $max_font-xxl);
+  font-weight: 700;
+}
+
+@mixin o-heading--xl {
+  font-family: $ff-font--secondary;
+  font-size: $font-size-xl;
+  font-weight: normal;
+  line-height: 1;
+  letter-spacing: $letter-spacing-primary;
+}
+
+h2,
+.o-heading--xl {
+  @include o-heading--xl;
+}
+
+@mixin o-heading--l {
+  font-family: $ff-font--secondary;
+  font-size: $font-size-l;
+  font-weight: normal;
+  line-height: 1;
+  letter-spacing: $letter-spacing-primary;
+}
+
+h3,
+.o-heading--xl {
+  @include o-heading--xl;
+}
+
+@mixin o-heading--m {
+  font-family: $ff-font--primary;
+  font-size: $font-size-m;
+  font-weight: normal;
+  line-height: 1;
+  letter-spacing: $letter-spacing-quaternary;
+  text-transform: uppercase;
+}
+
+h4,
+.o-heading--m {
+  @include o-heading--m;
+    @include media(">medium") {
+      line-height: 30px;
+    }
+  }
+
+@mixin o-heading--s {
+  font-family: $ff-font--primary;
+  font-size: $font-size-s;
+  font-weight: normal;
+  line-height: 1.6;
+  letter-spacing: $letter-spacing-secondary;
+  text-transform: uppercase;
+}
+
+h5,
+.o-heading--s {
+  @include o-heading--s;
+}
+
+@mixin o-heading--xs {
+  font-family: $ff-font--primary;
+  font-size: $font-size-xs;
+  font-weight: normal;
+  line-height: 1.6;
+  letter-spacing: normal;
+}
+
+h6,
+.o-heading--xs {
+  @include o-heading--xs;
+}

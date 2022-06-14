@@ -1,0 +1,40 @@
+/* ------------------------------------ *\
+    $FONTS
+\* ------------------------------------ */
+@font-face {
+  font-family: 'Gotham';
+  src: url('/fonts/Gotham-Book.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Gotham';
+  src: url('/fonts/Gotham-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Gotham';
+  src: url('/fonts/GothamMedium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Miller Display';
+  src: url('/fonts/MillerDisplay-Roman.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Miller Display';
+  src: url('/fonts/MillerDisplay-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}

@@ -1,0 +1,6 @@
+labels:
+  app: condenast-events-prod-application
+
+image:
+  repository: 762411232876.dkr.ecr.us-east-1.amazonaws.com/condenast-events-prod
+  image_tag: PROD-IMAGE-VERSION

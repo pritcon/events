@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: strapi-stag-deployment
+  namespace: strapi-stag
+  labels:
+    app: {{ .Values.labels.app }}
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: {{ .Values.labels.app }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.labels.app }}
+    spec:
+      containers:
+      - name: strapi-stag
+        image: "{{ .Values.image.repository }}:{{ .Values.image.image_tag }}"
+        ports:
+        - containerPort: 1337

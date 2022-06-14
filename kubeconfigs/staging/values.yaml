@@ -1,0 +1,6 @@
+labels:
+  app: strapi-stag-application
+
+image:
+  repository: 762411232876.dkr.ecr.us-east-1.amazonaws.com/strapi-stag
+  image_tag: STAG-IMAGE-VERSION

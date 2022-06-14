@@ -1,0 +1,10 @@
+[#{$prefix}~='container'] {
+  width: 100%;
+  margin: 0 auto;
+  display: block;
+  max-width: $container-width;
+}
+
+html, body, .l-main {
+  min-height: 100vh;
+}

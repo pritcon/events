@@ -1,0 +1,24 @@
+/* ------------------------------------ *\
+    $CARDS
+\* ------------------------------------ */
+
+.c-card {
+  &__headline {
+    font-size: $font-size-s;
+    font-weight: bold;
+  }
+
+  &__subheadline {
+  	font-size: $font-size-s;
+  }
+
+  &__eyebrow {
+  	text-transform: uppercase;
+    font-size: $font-size-s;
+  }
+
+  img {
+  	width: 100%;
+  	margin-bottom: $space-half;
+  }
+}

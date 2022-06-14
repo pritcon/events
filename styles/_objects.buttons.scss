@@ -1,0 +1,99 @@
+/* ------------------------------------ *\
+    $BUTTONS
+\* ------------------------------------ */
+
+@mixin o-button {
+  display: inline-flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  transition: $transition-all;
+  text-decoration: none;
+  border-radius: 0;
+  outline: 0;
+  text-align: center;
+  line-height: 1;
+  white-space: nowrap;
+  appearance: none;
+  cursor: pointer;
+  padding: $space-half 90px $space-half $space;
+  color: $c-primary;
+  border: 1px solid $c-primary;
+  overflow: hidden;
+  background: transparent url("data:image/svg+xml,%3Csvg width='52' height='14' viewBox='0 0 52 14' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 7.00269H51M51 7.00269L45.141 1M51 7.00269L45.141 13' stroke='black' stroke-linecap='round'/%3E%3C/svg%3E%0A") no-repeat right $space center;
+
+  @include o-heading--s;
+
+  &:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: $c-black;
+    transition: all 0.33s $hard-ease-in;
+    transform: translateX(-100%);
+    z-index: -1;
+  }
+
+  &:hover,
+  &:focus {
+    color: $c-tertiary;
+    background: transparent url("data:image/svg+xml,%3Csvg width='52' height='14' viewBox='0 0 52 14' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 7.00269H51M51 7.00269L45.141 1M51 7.00269L45.141 13' stroke='white' stroke-linecap='round'/%3E%3C/svg%3E%0A") no-repeat right $space center;
+    
+    &:before {
+      transform: translateX(0);
+    }
+  }
+}
+
+button,
+input[type="submit"],
+.o-button {
+  @include o-button;
+}
+
+/**
+ * Button Secondary
+ */
+@mixin o-button--secondary {
+  @include o-button;
+
+  background-color: $c-primary;
+  color: $c-tertiary;
+
+  &:hover,
+  &:focus {
+    background-color: $c-tertiary;
+    color: $c-primary;
+    border-color: $c-primary;
+  }
+}
+
+.o-button--secondary {
+  @include o-button--secondary;
+}
+
+.c-section-sponsorship-content__button .o-button {
+  @include media("<=medium") {
+    font-size: 12px;
+    background-size: 30px;
+    padding: $space-half 60px $space-half $space-half;
+  }
+}
+
+.o-button--reverse {
+  background: transparent url("data:image/svg+xml,%3Csvg width='52' height='14' viewBox='0 0 52 14' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M51 6.99731L1 6.99731M1 6.99731L6.859 13M1 6.99731L6.859 1' stroke='black' stroke-linecap='round'/%3E%3C/svg%3E%0A") no-repeat left $space center;
+  padding: $space-half $space $space-half 90px;
+
+  &:hover,
+  &:focus {
+    color: $c-tertiary;
+    background: transparent url("data:image/svg+xml,%3Csvg width='52' height='14' viewBox='0 0 52 14' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M51 6.99731L1 6.99731M1 6.99731L6.859 13M1 6.99731L6.859 1' stroke='white' stroke-linecap='round'/%3E%3C/svg%3E%0A") no-repeat left $space center;
+    
+    &:before {
+      transform: translateX(0);
+    }
+  }
+}
