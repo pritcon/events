@@ -200,7 +200,8 @@ export async function getStaticProps({ params, preview = false }) {
   // console.log(events);
   // const events = await getRecentEvents();
 
-  const content = await getHomePageContentStrapi();
+  const contents = await getHomePageContentStrapi();
+  const content =  Array.isArray(contents) && contents.length ? contents[0] : null
   console.log('home page content');
   console.log(content);
   return {
